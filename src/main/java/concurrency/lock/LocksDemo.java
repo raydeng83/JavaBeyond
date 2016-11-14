@@ -12,7 +12,7 @@ public class LocksDemo {
 
     public void demoCounter() {
         ExecutorService service = Executors.newCachedThreadPool();
-        IntStream.range(0, 1000)
+        IntStream.range(0, 2000)
                 .forEach(i -> service.submit(counter::increment));
         service.shutdown();
         System.out.println("Counter count=" + counter.getCount());
@@ -20,7 +20,7 @@ public class LocksDemo {
 
     public void demoSyncCounter() {
         ExecutorService service = Executors.newCachedThreadPool();
-        IntStream.range(0, 1000)
+        IntStream.range(0, 2000)
                 .forEach(i -> service.submit(scounter::increment));
         service.shutdown();
         System.out.println("SynchCounter count=" + scounter.getCount());
@@ -28,7 +28,7 @@ public class LocksDemo {
 
     public void demoAtomicCounter() {
         ExecutorService service = Executors.newCachedThreadPool();
-        IntStream.range(0, 1000)
+        IntStream.range(0, 2000)
                 .forEach(i -> service.submit(acounter::increment));
         service.shutdown();
         System.out.println("AtomicCounter count=" + acounter.getCount());
@@ -36,7 +36,7 @@ public class LocksDemo {
 
     public void demoLockedCounter() {
         ExecutorService service = Executors.newCachedThreadPool();
-        IntStream.range(0, 1000)
+        IntStream.range(0, 2000)
                 .forEach(i -> service.submit(lcounter::increment));
         service.shutdown();
         System.out.println("LockedCounter count=" + lcounter.getCount());

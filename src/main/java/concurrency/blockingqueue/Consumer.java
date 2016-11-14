@@ -20,7 +20,7 @@ public class Consumer implements Runnable {
         try {
             while ((msg = queue.take()).getId() != -1) {
                 System.out.printf("Consumer %d consumed %d%n", id, msg.getId());
-                Thread.sleep((int) (Math.random() * 50));
+                Thread.sleep((int) (Math.random() * 100));
             }
         } catch (InterruptedException e) {
             e.printStackTrace();

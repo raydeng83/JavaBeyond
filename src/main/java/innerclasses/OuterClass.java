@@ -31,6 +31,7 @@ public class OuterClass {
 
     public static class InnerStaticClass {
         public void myMethod() {
+//            System.out.println("anInt=" + anInt + ", string=" + string);
             System.out.println("inside a static inner class");
         }
     }

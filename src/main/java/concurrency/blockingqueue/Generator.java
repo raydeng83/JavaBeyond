@@ -16,12 +16,12 @@ public class Generator implements Runnable {
 
     @Override
     public void run() {
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 100; i++) {
             Message msg = new Message(i);
             try {
                 System.out.printf("Generator %d generated %d%n", id, msg.getId());
                 queue.put(msg);
-                Thread.sleep((long) (Math.random() * 50));
+                Thread.sleep((long) (Math.random() * 100));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

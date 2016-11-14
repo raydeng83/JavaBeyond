@@ -55,7 +55,7 @@ public class JpaUserDao implements UserDao {
     public List<Integer> getIds() {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        List<Integer> ids = em.createQuery("select p.id from Person p", Integer.class)
+        List<Integer> ids = em.createQuery("select u.id from User u", Integer.class)
                 .getResultList();
         return ids;
     }

@@ -6,7 +6,7 @@ import javax.persistence.*;
  * Created by z00382545 on 11/8/16.
  */
 @Entity
-@Table(name="PEOPLE")
+@Table(name="USER")
 public class User {
     public static final String DEFAULT_NAME = "DEFAULT USER";
 
@@ -46,10 +46,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return String.format("User{id=%d, name='%s'}", id, name);
     }
 
     @Override

@@ -19,12 +19,7 @@ public class FileExample {
         }
 
         System.out.println("\nUsing anonymous inner class for text files:");
-        for (String name : dir.list(new FilenameFilter() {
-            @Override
-            public boolean accept(File dir, String name) {
-                return name.endsWith(".txt");
-            }
-        })) {
+        for (String name : dir.list((dir1, name1) -> name1.endsWith(".java"))) {
             System.out.println(name);
         }
     }

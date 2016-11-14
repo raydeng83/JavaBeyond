@@ -11,7 +11,7 @@ public class JdbcUserDao implements UserDao {
     private static final String DRIVER = "com.mysql.jdbc.Driver";
     private static final String URL = "jdbc:mysql://localhost:3306/hr";
     private static final String USER = "root";
-    private static final String PASSWORD = "Rochester24";
+    private static final String PASSWORD = "sesame";
 
     public JdbcUserDao() {
         try {
@@ -26,7 +26,7 @@ public class JdbcUserDao implements UserDao {
         List<User> users = new ArrayList<>();
         try (
                 Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-                PreparedStatement pst = conn.prepareStatement("SELECT * FROM hr.PEOPLE")
+                PreparedStatement pst = conn.prepareStatement("SELECT * FROM hr.USER")
         ) {
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
@@ -46,7 +46,7 @@ public class JdbcUserDao implements UserDao {
         try (
                 Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
                 PreparedStatement pst = conn.prepareStatement(
-                        "SELECT * FROM hr.PEOPLE WHERE id=?")
+                        "SELECT * FROM hr.USER WHERE id=?")
         ) {
             pst.setInt(1, id);
             ResultSet rs = pst.executeQuery();
@@ -66,7 +66,7 @@ public class JdbcUserDao implements UserDao {
         try (
                 Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
                 PreparedStatement pst = conn.prepareStatement(
-                        "INSERT INTO hr.PEOPLE(name) VALUES(?)",
+                        "INSERT INTO hr.USER(name) VALUES(?)",
                         Statement.RETURN_GENERATED_KEYS)
         ) {
             pst.setString(1, u.getName());
@@ -89,7 +89,7 @@ public class JdbcUserDao implements UserDao {
         try (
                 Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
                 PreparedStatement pst = conn.prepareStatement(
-                        "DELETE FROM hr.PEOPLE WHERE id=?")
+                        "DELETE FROM hr.USER WHERE id=?")
         ) {
             pst.setInt(1, u.getId());
             int uc = pst.executeUpdate();
@@ -104,7 +104,7 @@ public class JdbcUserDao implements UserDao {
         List<Integer> ids = new ArrayList<>();
         try (
                 Connection conn = DriverManager.getConnection(URL,USER, PASSWORD);
-                PreparedStatement pst = conn.prepareStatement("select id from hr.PEOPLE");
+                PreparedStatement pst = conn.prepareStatement("select id from hr.USER");
         ) {
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {

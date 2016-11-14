@@ -7,6 +7,12 @@ public class SyncCounter {
         count++;
     }
 
+//    public void increment2() {
+//        synchronized (this) {
+//            count++;
+//        }
+//    }
+
     public synchronized int getCount() {
         return count;
     }

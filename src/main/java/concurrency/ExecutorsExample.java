@@ -17,6 +17,10 @@ public class ExecutorsExample {
         ExecutorService service = Executors.newCachedThreadPool();
         runnableList.forEach(service::execute);
 
+        for (RunnableClass mr : runnableList) {
+            service.execute(mr);
+        }
+
         service.shutdown();
     }
 }
